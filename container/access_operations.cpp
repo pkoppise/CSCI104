@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/*
+
 int main()
 {
 	vector<int> g1;
@@ -27,4 +27,4 @@ int main()
 
 	cout << "\nThe first element is " << *pos;
 	return 0;
-}*/
+}
