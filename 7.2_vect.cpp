@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -24,6 +25,10 @@ int main ()
     vector<int> vec1(5); //size 5 with default value is 0
     cout << "using size and defualt" << endl; 
     printVector<int>(vec1);
+    
+    vector<int> vec11 = {1,2,3,4,5};
+    cout << "using { } brackets" << endl; 
+    printVector<int>(vec11);    
 
     vector<int> vec2(5,10); //size 5 with default value is 10
     cout << "using size and value 10" << endl;
@@ -33,6 +38,11 @@ int main ()
     {
         vec1[i]= i+51;
     }
+    
+    cout << vec1.front() << endl;
+    cout << vec1.back() << endl;
+    cout << "-------------" << endl;
+    
     cout << "using assigning" << endl;
     printVector<int>(vec1);
 
