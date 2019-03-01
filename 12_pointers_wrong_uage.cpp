@@ -8,13 +8,16 @@ void area(int, int, int&);
 
 int main()
 {
-	//int wid = 8, len = 5, *a;
-	int wid = 8, len = 5, a;
-	//a = area(wid,len);
-	//area(wid,len,&a);
+    int wid = 8, len = 5, a;
+    //int *ptr = area(wid,len);
+    //cout << *ptr << endl; //nothing here ans variable is died.
+	
+    area(wid,len,&a);
+    cout << a << endl;
+	
+    wid = 10; len = 6;
     area(wid,len,a);
-	//cout << *a << endl; //nothing here ans variable is died.
-	cout << a << endl;
+    cout << a << endl;	
 }
 
 /*
