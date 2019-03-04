@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/*
+
 int main()
 {
 	vector<string> Scientist;
@@ -56,18 +56,18 @@ int main()
 	if(Scientist.empty()) 
 		cout << "Nothing in the list\n";
 	else
-		cout << "You have something in the list\n";*/
+		cout << "You have something in the list\n";
 
 	//According to Scott Meyers, the following code requires 2-18 reallocations:
 
 	//vector<int> v;
 	//for(int i = 0; i < 1000; ++i)
 	//	v.push_back(i);
-    //So, he suggested we should use resever() to reduce the costs:
+        //So, he suggested we should use resever() to reduce the costs:
 
 	//vector<int> v;
 	//v.reserve(1000);
 	//for(int i = 0; i < 1000; ++i) v.push_back(i);
 
-	//return 0;
-//}
+	return 0;
+}
