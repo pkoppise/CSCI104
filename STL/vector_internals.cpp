@@ -1,4 +1,3 @@
-/*
 class vector
 {
 	int sz;        // current number of elements
@@ -6,9 +5,9 @@ class vector
 	int space;     // current number of elements + free_space
  public:
 	void reserve(int);
-    void resize(int);
-    int capacity() const;
-    void push_back(double);
+    	void resize(int);
+    	int capacity() const;
+    	void push_back(double);
 };
 
 
@@ -54,8 +53,7 @@ vector& vector::operator=(const vector& v)
 	elem = pd;
 	space = sz = v.sz;
 	return *this;
-}*/
-
+}
 //1)Allocate memory for a copy.
 //2)Copy the elements/
 //3) Free the old memory allocation.
