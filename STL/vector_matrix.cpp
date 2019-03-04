@@ -6,7 +6,7 @@ using namespace std;
 #define ROW 3
 #define COL 2
 
-/*
+
 int main()
 {
     // vector with ROW rows, each row has COL columns with initial value of 99
@@ -19,4 +19,4 @@ int main()
 		cout << endl;
 	}
 	return 0;
-}*/
+}
