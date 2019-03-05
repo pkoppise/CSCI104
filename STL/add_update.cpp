@@ -3,7 +3,7 @@
 #include <string>
 
 using namespace std;
-/*
+
 int main ()
 {
 	typedef map<string, int> mapType;
@@ -19,4 +19,4 @@ int main ()
 		std::cout << it.first << ": " << it.second << std::endl;
 
 	return 0;
-}*/
+}
