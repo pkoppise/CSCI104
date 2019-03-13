@@ -2,49 +2,80 @@
 #include <vector>
 using namespace std;
 
-// Classical C++ implementation of singleton design pattern
 class Singleton
 {
 private:
-	vector<int> a;
-	static Singleton *ptr;
-
-	// private constructor to force use of getInstance() to create Singleton object
-	Singleton() { cout << "Private Constructor called" << endl; }
-
+    Singleton() {}
+    ~Singleton() {}
+    static Singleton* instance;
+    static int counter;
+    vector<int> a;
 public:
-	static Singleton *getInstance()
-	{
-		if (ptr == NULL)
-			ptr = new Singleton;
-		return ptr;
-	}
-	void pushValue(int x)
-	{
-		a.push_back(x);
-	}
-	void printvec()
-	{
-		vector<int>::iterator it;
-		for(it = a.begin(); it != a.end(); ++it)
-		{
-			cout << *it << " ";
-		}
-		cout << endl;
-	}
+    static Singleton* getInstance();
+    static void releaseInstance();
+    
+    void insert(const int& value)
+    {
+        a.push_back(value);
+    }
+    void print_vec()
+    {
+        for(int val: a)
+            cout << val << " ";
+        cout << endl;
+    }
+    
+    static int getNumberOfUsers()
+    {
+        return counter;
+    }
 };
 
-Singleton *Singleton::ptr = 0;
+Singleton* Singleton::getInstance()
+{
+    if(instance == NULL)
+    {
+        instance = new Singleton;
+    }
+    ++counter;
+    return instance;
+}
+
+void Singleton::releaseInstance()
+{
+    --counter;
+    if(counter == 0 && (instance != NULL))
+    {
+        delete instance;
+        instance = NULL;
+    }
+}
+
+
+Singleton* Singleton::instance = NULL;
+int Singleton::counter = 0;
 
 
 int main()
 {
-    Singleton *app1 = Singleton::getInstance();
-    app1->pushValue(2);
+    
+    Singleton* ptr1 = Singleton::getInstance();
+    ptr1->insert(2);
 
-    Singleton *app2 = Singleton::getInstance();
-    app2->pushValue(3);
-
-    app1->printvec();
-	return 0;
+    
+    Singleton* ptr2 = Singleton::getInstance();
+    ptr2->insert(3);
+    
+    cout << Singleton::getNumberOfUsers() << endl;
+    
+    ptr1->print_vec();
+    
+    ptr1->releaseInstance();
+    ptr1 = NULL;
+    
+    cout << Singleton::getNumberOfUsers() << endl;
+    ptr2->print_vec();
+    return 0;
 }
+
+
