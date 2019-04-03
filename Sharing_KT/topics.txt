@@ -1,0 +1,39 @@
+Linux essential system programing .
+
+
+Types of kernel(Micro Kernel and monolithic Kernel)
+
+General Embedded systems  OS Architecture
+
+
+GNU tools(Make files, GDB, Val grind)
+
+
+How to create static library's and dynamic library's.
+
+
+File systems(logical file , exe2 and exe3)
+
+
+Parallel programing design(  user level threads and kernel level threads)
+
+signals, fork, clone and vfork
+
+
+Timed locks and poll based locks
+
+
+
+Linux kernel programing
+
+
+Character driver( I2c)
+
+Block driver(USB)
+
+Networking driver(PCI and Ethernet)
+
+
+Memory management(kmalloc, page allocator, cache allocator and pool allocator)
+
+Interrupts(softirq, tasklets and workqueus )
