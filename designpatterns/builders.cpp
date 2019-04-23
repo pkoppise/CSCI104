@@ -6,7 +6,7 @@ using namespace std;
 
 class HtmlElement
 {
-public:
+private:
     string name;
     string text;
     vector<HtmlElement> elements;
@@ -28,6 +28,7 @@ public:
         oss << i << "</" << name << ">" << endl;
         return oss.str();        
     }
+    friend class HtmlBuilder;
 };
 
 class HtmlBuilder
