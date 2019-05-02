@@ -30,7 +30,7 @@ vector<vector<int>> generateCombination(int index)
 int main()
 {
     size_t size = 15;
-    int arr[size] = {1,2,3,4,5,6,7,8,8,9,10,11,12,13,14,15};
+    int arr[size] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     int k = 2;
     while(k < size)
     {
