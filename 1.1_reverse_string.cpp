@@ -10,6 +10,22 @@ string reverseString(string actual, int len, int index)
     return temp + actual[index];
 }
 
+void swap(char& a, char &b)
+{
+   char temp = a;
+   a = b;
+   b = temp;
+}
+
+void ReverseString(string& actual)
+{
+	int n = actual.size();
+	for(int i = 0; i < n/2; i++)
+	{
+		swap(actual[i], actual[n - i - 1]);
+	}
+}
+
 bool compareHelper(string& str1, string& str2, int len, int index)
 {
 	if(len == index)
