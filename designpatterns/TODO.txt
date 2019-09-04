@@ -1,0 +1,4 @@
+Object Pool
+Memento
+Mediator
+Visitor
