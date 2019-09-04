@@ -2,7 +2,7 @@
 #include <string.h>
 using namespace std;
 
-/*
+
 void print(char* str)
 {
 	int i = 0;
@@ -47,6 +47,7 @@ int main()
 	char* str2 = d; // not a copy; just a pointer to first element of d
 	cout << str2 << " " << strlen(str2) << " " << sizeof(str2) <<  endl;
 	str2[0] = 'D';
+	//str2 = "NEWSTRING"; //will not effect d in this case
 	cout << str2 << " " << strlen(str2) << " " << sizeof(str2) <<  endl;
 	cout << d << " " << strlen(d) << " " << sizeof(d)<< endl;
 
@@ -55,4 +56,4 @@ int main()
 	cout << e << " " << strlen(e) << " " << sizeof(e) <<  endl;
 
 	return 0;
-}*/
+}
