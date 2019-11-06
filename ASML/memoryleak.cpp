@@ -16,6 +16,7 @@ public:
 	~Bar() {
 		cout << "Bar Destrcutor called" << endl;
 		data--;
+		//data--;
 		delete data;
 	}
 	void func() override {
