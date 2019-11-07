@@ -11,12 +11,12 @@ public:
 		this->id = id;
 	}
 
-	void TestStudentBase()
+	virtual void TestStudent()
 	{
 		cout << "Hello Base" << endl;
 	}
 
-	~Person() {};
+	virtual ~Person() {};
 private:
 	string name; int id;
 };
@@ -30,7 +30,7 @@ public:
 		this->gpa = gpa;
 	}
 
-	void TestStudentDerived()
+	void TestStudent()
 	{
 		cout << "Hello Derived" << endl;
 	}
@@ -45,7 +45,10 @@ int main()
 {
 	//Objects no virtual
     Student s = Student("Hoe",2,5,1.9);
-    Person  p = s;
-    //p.TestStudentDerived(); error since object is sliced
+    //Person &p = s; //object is not sliced
+    //p.TestStudent(); //derived class function is called since virtual is there
+
+    Person p = s; //object is sliced
+    p.TestStudent(); //base class function is called since virtual is there
     return 0;
 }
