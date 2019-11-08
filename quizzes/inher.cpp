@@ -9,7 +9,7 @@
  * run time / late / dynamic binding
  */
 
-/*
+
 #include <iostream>
 using namespace std;
 
@@ -71,11 +71,11 @@ private:
 int main()
 {
 	//Objects no virtual
-	Person  p = Person("Pain", 123);
+	/*Person  p = Person("Pain", 123);
     Student s = Student("Hoe",2,5,1.9);
-    Faculty f = Faculty("Ken",3,0);*/
+    Faculty f = Faculty("Ken",3,0);
 
-    /*p.print_info();
+    p.print_info();
     s.print_info();
     f.print_info();*/
 
@@ -99,16 +99,13 @@ int main()
     f.print_info();*/
 
 	//Pointers-->virtual work due to late binding or run-time binding.
-	//Person  *p = new Person("Pain", 123);
-    //Person  *s = new Student("Hoe",2,5,1.9);
-    //Person  *f = new Faculty("Ken",3,0);
+	/*Person  *p = new Person("Pain", 123);
+    Person  *s = new Student("Hoe",2,5,1.9);
+    Person  *f = new Faculty("Ken",3,0);
 
-    /*Person *ptr = &p;
-    Person *str = &s;
-    Person *ftr = &f;
 
-    ptr->print_info();
-    str->print_info();
-    ftr->print_info();
+    p->print_info();
+    s->print_info();
+    f->print_info();*/
     return 0;
-}*/
+}
