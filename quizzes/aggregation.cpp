@@ -1,3 +1,5 @@
+//Aggregation has relationshipe
+//Manager has group of workers under him(Workers come under Manager, but workers can stay indepenently)
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,63 +14,35 @@ public:
     string getWorkerName() { return name; } 
 };
 
-class SwipeCard;
-
 class Manager
 {
 private:
-    vector<Worker> teamList;
+    vector<Worker*> teamList;
 public:
-    void Logon(SwipeCard* card);
-    string getManagerName()
+    Manager(vector<Worker*> teamList):teamList(teamList) {}
+    void displayNames()
     {
-        return "PHANI";
-    }
-    void createTeam()
-    {
-        Worker w1("Naveen");
-        teamList.push_back(w1);
-        Worker w2("Harshal");
-        teamList.push_back(w2);
-        Worker w3("Rahul");
-        teamList.push_back(w3);
-    }
-    vector<string> getNames()
-    {
-        vector<string> wnames;
         for(int i = 0; i < teamList.size(); i++)
         {
-            wnames.push_back(teamList[i].getWorkerName());
+            cout << teamList[i]->getWorkerName() << endl;
         }
-        return wnames;
     }
 };
-
-class SwipeCard
-{
-public:
-    void Swipe(Manager* manager) { cout << manager->getManagerName() << " has swiped ID card" << endl;}
-};
-
-void Manager::Logon(SwipeCard* card)
-{
-    card->Swipe(this);
-}
 
 int main()
 {
-    Manager *mang = new Manager;
-    SwipeCard *sc = new SwipeCard;
-    mang->Logon(sc);
-    mang->createTeam();
-    vector<string> names = mang->getNames();
-    std::cout << "His Team members are" << endl;
-    for(int i = 0; i < names.size(); i++)
-    {
-        cout << names[i] << endl;
-    }
-    
+    vector<Worker*> teamList;
+    Worker *w1 = new Worker("Naveen");
+    teamList.push_back(w1);
+    Worker *w2 = new Worker("Harshal");
+    teamList.push_back(w2);
+    Worker *w3 = new Worker("Rahul");    
+    teamList.push_back(w3);
+    Manager *mang = new Manager(teamList);
+    mang->displayNames();
     delete mang;
-    delete sc;
+    delete w1;
+    delete w2;
+    delete w3;
     return 0;
 }
