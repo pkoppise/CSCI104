@@ -1,40 +1,40 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///Composition is generally used when you want the features of an existing class inside your new class, 
+// but not its interface. That is, you embed an object to implement features of your new class, 
+///but the user of your new class sees the interface you’ve defined rather than the interface from the original class.
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include <string>
 using namespace std;
 
-/*
-class ReleaseDate
-{
-private:
-	int date;
-	int month;
-	int year;
+class Engine {
 public:
-	ReleaseDate():date(0),month(0),year(0) {}
-	ReleaseDate(int d, int m, int y):date(d),month(m),year(y) {}
-	void printReleaseDate()
-	{
-		cout << "Release date:" << date << "/" << month << "/" << year << endl;
-	}
+  void start() const { cout << "Engine started" << endl;}
+  ~Engine() { cout <<"Engine deleted" << endl; }
 };
 
-class Product
-{
+class Car {
 private:
-	string name;
-	ReleaseDate rd;
+  Engine* engine;
 public:
-	Product(string n, ReleaseDate r):name(n),rd(r) {}
-	void printProduct()
-	{
-		cout << "Product:" << name << endl;
-		rd.printReleaseDate();
-	}
+  Car()
+  {
+      engine = new Engine;
+  }
+  ~Car()
+  {
+      cout <<"Car deleted" << endl;
+      delete engine;
+  }
+
+  void startCar()
+  {
+      engine->start();
+  }
 };
 
-int main()
-{
-	ReleaseDate obj(14,7,1994);
-	Product pd("Galaxy",obj);
-	pd.printProduct();
-}*/
+int main() {
+  Car *car = new Car;
+  car->startCar();
+  delete car;
+  return 0;
+} 
