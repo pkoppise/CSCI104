@@ -1,48 +1,35 @@
-//Aggregation has relationshipe
-//Manager has group of workers under him(Workers come under Manager, but workers can stay indepenently)
 #include <iostream>
-#include <string>
-#include <vector>
 using namespace std;
 
-class Worker
-{
-private:
-    string name;
+class Engine {
 public:
-    Worker(string name):name(name) {}
-    string getWorkerName() { return name; } 
+  void start() const { cout << "Engine started" << endl;}
+  void stop() const { cout <<"Engine stopped" << endl; }
+  ~Engine() { cout <<"Engine deleted" << endl; }
 };
 
-class Manager
-{
+class Car {
 private:
-    vector<Worker*> teamList;
+  Engine *engine;
 public:
-    Manager(vector<Worker*> teamList):teamList(teamList) {}
-    void displayNames()
-    {
-        for(int i = 0; i < teamList.size(); i++)
-        {
-            cout << teamList[i]->getWorkerName() << endl;
-        }
-    }
+  Car(Engine *engine):engine(engine){}
+  ~Car()
+  {
+      cout <<"Car deleted" << endl;
+  }
+
+  void startCar()
+  {
+      engine->start();
+  }
 };
 
-int main()
-{
-    vector<Worker*> teamList;
-    Worker *w1 = new Worker("Naveen");
-    teamList.push_back(w1);
-    Worker *w2 = new Worker("Harshal");
-    teamList.push_back(w2);
-    Worker *w3 = new Worker("Rahul");    
-    teamList.push_back(w3);
-    Manager *mang = new Manager(teamList);
-    mang->displayNames();
-    delete mang;
-    delete w1;
-    delete w2;
-    delete w3;
-    return 0;
-}
+int main() {
+  Engine eng;
+  {
+      Car car(&eng);
+      car.startCar();
+  }
+  eng.stop();
+  return 0;
+} 
